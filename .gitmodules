@@ -1,0 +1,3 @@
+[submodule "libs/ALTRepoApi"]
+	path = libs/ALTRepoApi
+	url = https://github.com/HackerCpp/AltRepoApi.git
