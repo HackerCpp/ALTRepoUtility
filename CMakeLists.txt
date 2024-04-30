@@ -10,7 +10,10 @@ set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread ")
 
+find_package(Threads REQUIRED)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 add_subdirectory(libs/AltRepoApi)
@@ -51,6 +54,7 @@ endif()
 target_link_libraries(ALTRepoUtility
     PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
     PUBLIC  AltRepoApi
+            Threads::Threads
 )
 
 set_target_properties(ALTRepoUtility PROPERTIES
